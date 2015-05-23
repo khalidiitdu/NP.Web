@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleResponsibility" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserInformations" Relationship="Self.FK_UserInformation_Role" FromRole="Role" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_UserInformation_Role" FromRole="UserInformation" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_UserInformation_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NPSecurity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
+    <AssociationSet Name="FK_UserInformation_Role" Association="Self.FK_UserInformation_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

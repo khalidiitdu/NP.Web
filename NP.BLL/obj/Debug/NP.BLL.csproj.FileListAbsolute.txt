@@ -1,0 +1,14 @@
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\AutoMapper.Net4.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\NP.BLL.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\NP.BLL.pdb
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\AutoMapper.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\NP.DAL.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\EntityFramework.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\NP.DAL.pdb
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\AutoMapper.pdb
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\AutoMapper.xml
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\AutoMapper.Net4.pdb
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\bin\Debug\EntityFramework.xml
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\obj\Debug\NP.BLL.csprojResolveAssemblyReference.cache
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\obj\Debug\NP.BLL.dll
+c:\Users\khalid.hard-won\documents\visual studio 2013\Projects\NP.Web\NP.BLL\obj\Debug\NP.BLL.pdb

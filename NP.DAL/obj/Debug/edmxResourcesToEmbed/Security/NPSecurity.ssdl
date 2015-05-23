@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleResponsibility" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nchar" MaxLength="10" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Association Name="FK_UserInformation_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="Security" store:Type="Tables" />
+    <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="Security" store:Type="Tables" />
+    <AssociationSet Name="FK_UserInformation_Role" Association="Self.FK_UserInformation_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

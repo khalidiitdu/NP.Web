@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AutoMapper;
+
+namespace NP.BLL.AutoMapper.Core
+{
+    public class AutomapperBootstrap : Profile
+    {
+        public static void Initialize()
+        {
+            Mapper.AddProfile<DomainToDatabase>();
+            Mapper.AddProfile<DatabaseToDomain>();
+        }
+    }
+}
